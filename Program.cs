@@ -1,9 +1,11 @@
 ﻿using System;
 
 
+
+
 int[] insert()
 {
-    Console.Write("Please enter numbers you want to sort: ");
+    Console.WriteLine("Please enter numbers you want to sort: ");
     string numberArrayReaded = Console.ReadLine();
     var numberArraySplited = numberArrayReaded.Split(" ");
     int[] numberArray = new int[numberArraySplited.Length];
@@ -18,7 +20,7 @@ int[] insert()
     return numberArray;
 }
 
-void selectionSort(int [] insert)
+void selectionSort(int[] insert)
 {
     for (int i = 0; i < insert.Length - 1; i++)
     {
@@ -42,20 +44,20 @@ void selectionSort(int [] insert)
     }
     Console.Read();
 }
-void bubbleSort(int[] numberArray)
+void bubbleSort(int[] insert)
 {
-    for (int j = 0; j < numberArray.Length - 1; j++)
+    for (int j = 0; j < insert.Length - 1; j++)
     {
-        if (numberArray[j] > numberArray[j + 1])
+        if (insert[j] > insert[j + 1])
         {
 
-            var saveNumber = numberArray[j + 1];
-            numberArray[j + 1] = numberArray[j];
-            numberArray[j] = saveNumber;
+            var saveNumber = insert[j + 1];
+            insert[j + 1] = insert[j];
+            insert[j] = saveNumber;
         }
     }
     Console.Write("Sorted array:");
-    foreach (var numb in numberArray)
+    foreach (var numb in insert)
     {
         Console.Write(" " + numb);
 
@@ -63,22 +65,22 @@ void bubbleSort(int[] numberArray)
 
     Console.Read();
 }
-    void insertionSort(int[] numberArray)
+void insertionSort(int[] insert)
 {
-    for (int i = 0; i < numberArray.Length - 1; i++)
+    for (int i = 0; i < insert.Length - 1; i++)
     {
         for (int j = i + 1; j > 0; j--)
         {
-            if (numberArray[j - 1] > numberArray[j])
+            if (insert[j - 1] > insert[j])
             {
-                int saveNumber = numberArray[j - 1];
-                numberArray[j - 1] = numberArray[j];
-                numberArray[j] = saveNumber;
+                int saveNumber = insert[j - 1];
+                insert[j - 1] = insert[j];
+                insert[j] = saveNumber;
             }
         }
     }
     Console.Write("Sorted array:");
-    foreach (var numb in numberArray)
+    foreach (var numb in insert)
     {
         Console.Write(" " + numb);
 
@@ -100,11 +102,10 @@ void menu()
 while (true)
 {
     menu();
-    var pageNumber = Console.Read();
-
-    if (pageNumber < 54 || pageNumber > 48)
+    var pageNumber = int.Parse(Console.ReadLine());
+    if (pageNumber < 6 || pageNumber > 0)
     {
-        switch (pageNumber - 48)
+        switch (pageNumber)
         {
             case 4:
                 Console.Clear();
@@ -118,7 +119,7 @@ while (true)
 
 
 
-                switch (pageNumber - 48)
+                switch (pageNumber)
                 {
                     case 1:
 
@@ -141,6 +142,6 @@ while (true)
                 break;
         }
     }
-    else 
-    Console.WriteLine("Enter correct number");
+    else
+        Console.WriteLine("Enter correct number");
 }
